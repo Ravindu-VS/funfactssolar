@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header, footer {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #fact-section {
+            text-align: center;
+            margin: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #fact-display {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3b2f;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            #fact-display {
+                font-size: 1.2em;
+            }
+
+            button {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore the Solar System</h1>
+    </header>
+    <main>
+        <section id="fact-section">
+            <div id="fact-display">Click the button to discover a fact!</div>
+            <button id="generate-fact">Generate Random Fact</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Solar System Explorer</p>
+    </footer>
+    <script>
+        const facts = [
+            "The solar system is around 4.6 billion years old.",
+            "Jupiter is the largest planet in our solar system and has a Great Red Spot, which is a giant storm.",
+            "Venus is the hottest planet in our solar system, even hotter than Mercury, due to its thick, toxic atmosphere.",
+            "Mars has the tallest volcano in the solar system, Olympus Mons, which is about 13.6 miles high.",
+            "Saturn is famous for its stunning rings, which are made mostly of ice particles and rocky debris.",
+            "Uranus rotates on its side, making it unique among the planets in our solar system.",
+            "Neptune has the strongest winds in the solar system, with speeds reaching up to 1,200 miles per hour.",
+            "Mercury has no atmosphere to retain heat, so it experiences extreme temperature fluctuations.",
+            "The Sun contains 99.86% of the mass in the solar system.",
+            "Pluto, once considered the ninth planet, is now classified as a dwarf planet."
+        ];
+
+        document.getElementById('generate-fact').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('fact-display');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 1;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
